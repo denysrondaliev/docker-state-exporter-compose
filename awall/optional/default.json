@@ -1,0 +1,7 @@
+{
+  "description": "default deny all",
+  "zone": {
+    "WAN": { "iface": ["eth0"] }
+  },
+  "policy": [{ "in": "WAN", "action": "drop" }, { "action": "reject" }]
+}

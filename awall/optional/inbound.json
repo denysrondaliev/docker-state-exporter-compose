@@ -1,0 +1,11 @@
+{
+  "description": "allow custom inbound",
+  "filter": [
+    {
+      "in": "WAN",
+      "out": "_fw",
+      "service": ["custom"],
+      "action": "accept"
+    }
+  ]
+}

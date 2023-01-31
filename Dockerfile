@@ -7,6 +7,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o 
 
 FROM alpine:3
 COPY --from=builder /go/bin/docker_state_exporter /go/bin/docker_state_exporter
+COPY awall/optional /etc/awall/optional
+COPY start.sh /
+RUN apk update && \
+    apk add --no-cache ip6tables iptables && \
+    apk add --no-cache -u awall && \
+    awall enable main && \
+    chmod +x+x+x /start.sh
 EXPOSE 8080
-ENTRYPOINT ["/go/bin/docker_state_exporter"]
-CMD ["-listen-address=:8080"]
+CMD ["/start.sh"]

@@ -1,0 +1,5 @@
+{
+  "description": "main firewall",
+
+  "import": ["custom", "default", "inbound", "ssh", "ping"]
+}

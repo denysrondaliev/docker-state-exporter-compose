@@ -1,0 +1,11 @@
+{
+  "description": "allow ssh",
+  "filter": [
+    {
+      "in": "WAN",
+      "out": "_fw",
+      "service": "ssh",
+      "action": "accept"
+    }
+  ]
+}
