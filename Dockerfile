@@ -15,4 +15,4 @@ RUN apk update && \
     awall enable main && \
     chmod +x+x+x /start.sh
 EXPOSE 8080
-CMD ["/start.sh"]
+CMD ["/entrypoint.sh"]
