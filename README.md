@@ -10,7 +10,7 @@
 ```bash
 git clone https://github.com/unleftie/docker-state-exporter-compose.git
 cd docker-state-exporter-compose/
-docker compose up -d
+docker compose up -d --build
 ```
 
 ## Testing
