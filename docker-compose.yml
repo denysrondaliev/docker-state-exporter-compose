@@ -29,5 +29,4 @@ services:
       test: wget -q -O - localhost:8080/metrics | grep -q "container_restartcount"
       interval: 120s
       timeout: 5s
-      retries: 3
-      start_period: 30s
+      retries: 2
