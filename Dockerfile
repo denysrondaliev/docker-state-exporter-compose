@@ -10,11 +10,11 @@ FROM alpine:3
 ENV DOCKER_API_VERSION=1.41
 COPY --from=builder /go/bin/docker_state_exporter /go/bin/docker_state_exporter
 COPY awall/optional /etc/awall/optional
-COPY start.sh /
+COPY entrypoint.sh /
 RUN apk update && \
     apk add --no-cache ip6tables iptables && \
     apk add --no-cache -u awall && \
     awall enable main && \
-    chmod +x+x+x /start.sh
+    chmod +x+x+x /entrypoint.sh
 EXPOSE 8080
 CMD ["/entrypoint.sh"]
