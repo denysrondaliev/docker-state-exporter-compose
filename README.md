@@ -8,7 +8,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/unleftie/docker-state-exporter-compose.git
+git clone https://github.com/denysrondaliev/docker-state-exporter-compose.git
 cd docker-state-exporter-compose/
 docker compose up -d --build
 ```
