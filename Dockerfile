@@ -1,8 +1,6 @@
 # build image
 FROM golang:alpine as builder
 
-ENV DOCKER_API_VERSION=1.43
-
 COPY *.go $GOPATH/src/mypackage/myapp/
 
 WORKDIR $GOPATH/src/mypackage/myapp/
@@ -15,8 +13,6 @@ RUN apk update && apk add --no-cache git ca-certificates && \
 
 # runtime image
 FROM alpine:3
-
-ENV DOCKER_API_VERSION=1.43
 
 COPY --from=builder /go/bin/docker_state_exporter /go/bin/docker_state_exporter
 COPY awall/optional /etc/awall/optional
