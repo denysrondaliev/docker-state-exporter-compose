@@ -10,10 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - type: bind
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
-        read_only: true
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "9110:8080/tcp"
     restart: unless-stopped
