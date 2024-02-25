@@ -2,13 +2,13 @@ services:
   docker_state_exporter:
     container_name: docker_state_exporter
     image: docker_state_exporter
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - TZ="Europe/Kyiv"
     cap_add:
       - NET_ADMIN
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
