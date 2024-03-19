@@ -2,6 +2,10 @@ services:
   docker_state_exporter:
     container_name: docker_state_exporter
     image: docker_state_exporter
+    user: root
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,6 +13,8 @@ services:
       - TZ="Europe/Kyiv"
     cap_add:
       - NET_ADMIN
+    cap_drop:
+      - ALL
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
